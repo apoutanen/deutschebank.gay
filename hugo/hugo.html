@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function blinkOn() {
+                Array.from(document.getElementsByClassName("blink")).map(elem => elem.style.opacity = 1);
+                window.setTimeout(blinkOff, 500);
+            }
+
+            function blinkOff() {
+                Array.from(document.getElementsByClassName("blink")).map(elem => elem.style.opacity = 0);
+                window.setTimeout(blinkOn, 200);
+            }
+
+            bitcoinCount = 0;
+
+            function mineBitcoin() {
+                document.getElementById("bitcoin").innerHTML = bitcoinCount.toFixed(6);
+                bitcoinCount += 0.000001;
+                window.setTimeout(mineBitcoin, 1000);
+            }
+
+
+            window.addEventListener("load", () => {
+                blinkOn();
+                mineBitcoin();
+            });
+        </script>
+    </head>
+    <body>
+        <h1>
+            Hello valued user, and welcome to Deutchebank!
+        </h1>
+        <img src="images/multilingual_customer_support_WIDE.jpg">
+        <h1>
+            Wow, it looks like we have an extra special login today...
+        </h1>
+        <img src="images/rolling-out-carpet.jpg"></img>
+        <img src="images/wall-murals-vip-zone-black.jpg.jpg"></img>
+        <h1>
+            THE CEO OF DEUTCHEBANK!
+        </h1>
+        <img src="images/deutchebank-ceo.png"></img>
+        <img src="images/ceo-mug.jpg"></img>
+        <h1>
+            on his very special day... <span class="blink">HAPPY BIRTHDAY DEAR CEO BYRON KONTOU</span>
+        </h1>
+        <img src="images/minions.jpg"></img>
+        <img src="images/hats.jpg"></img>
+        <img src="images/hats2.jpg"></img>
+        <img src="images/hats3.jpg"></img>
+        <img src="images/hats4.jpg"></img>
+        <img src="images/turning50.jpg"></img>
+        <h1>
+            there are lots of exciting developments underway at the doychabank web services department.
+        </h1>
+        <h1>
+            We are excited to finally show off our hard work
+        </h1>
+        <h1>
+            Check this out!!
+        </h1>
+        <img src="images/morphing.gif"></img>
+        <img src="images/underconstruction.gif"></img>
+        <img src="images/miner1.gif"></img>
+        <img src="images/miner2.gif"></img>
+        You have mined <span id="bitcoin"></span> bitcoin for Deutchebank during your visit
+    </body>
+</html>
