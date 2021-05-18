@@ -2,10 +2,86 @@
 <html>
 <head>
 	<title>BYRON'S BIRTHDAY WEBSITE</title>
-	<link rel="stylesheet" href="aria/css/styles.css">
-	<link rel="icon" href="images/favicon.ico">
+	<!-- <link rel="icon" href="images/favicon.ico"> -->
+	<style>
+		body {
+			background-color: lime;
+		}
+		h1 {
+			color: blue;
+		}
+		p#counter{
+			font-family: "Copperplate", fantasy;
+			font-size: 200px;
+			font-style: italic;
+			color: hotpink;
+			position: fixed;
+			left: 50px;
+		}
+		img#goat {
+			width: 500px;
+		}
+		img#squiddy {
+			width: 200px;
+			position: absolute;
+			bottom: 50px;
+			right: 50px;
+		}
+		audio#audio {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		/* i got this off stack overflow :) */
+		@-webkit-keyframes rotating {
+		    from{
+		        -webkit-transform: rotate(0deg);
+		    }
+		    to{
+		        -webkit-transform: rotate(360deg);
+		    }
+		}
+		.rotating {
+		    -webkit-animation: rotating 2s linear infinite;
+		}
+</style>
 </head>
 <body>
-	welcome to aria's page
+
+	<h1>welcome to aria's page</h1>
+
+	<img id="goat" onmousedown="rotate('goat')" src="images/goat.jpeg" alt="spinning goat">
+
+	<div><img id="squiddy" onmousedown="rotate('squiddy')" src="images/handsome_squiddy.jpeg" alt="spinning squidward"><div>
+
+	<p id="counter">0</p>
+
+	<!-- working on this -->
+	<!-- <iframe src="audio/allstar.mp3" allow="autoplay" id="audio"></iframe>
+	<audio id="player" autoplay controls>
+		<source src="audio/allstar.mp3" type="audio/mp3">
+	</audio> -->
+
+	<audio id="audio" src="audio/allstar.mp3"></audio>
+
+	<script type="text/javascript">
+		var clicked = 0;
+		var rotations = 20;
+		var audio = document.getElementById("audio");
+		var rotatorRule = document.styleSheets[0].cssRules[7];
+
+		function rotate(id) {
+			if (clicked == 0) {
+				audio.play();
+			}
+			clicked = clicked + 1;
+			document.getElementById("counter").textContent = clicked;
+			document.getElementById(id).classList.add("rotating");
+			// this is fucky you don't have to do this
+			rotatorRule.style.animation = rotations + "s linear 0s infinite normal none running rotating";
+			rotations = rotations/2;
+		}
+	</script>
 </body>
 </html>
