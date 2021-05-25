@@ -2,12 +2,90 @@
 <html>
 <head>
     <meta charset='utf8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>hbd byron</title>
 
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="icon" href="images/favicon.ico">
 
-    <script src="scripts/login.js"></script>
+    <script>
+        function log_in() {
+            // hide the login box
+            document.getElementById('login-box').classList.add('hidden');
+
+            // generate logged in message
+            var username = document.getElementById('username').value
+            welcome_element = document.getElementById('welcome-message')
+            welcome_element.textContent = "You are logged in as " + username + ". ";
+            if (username.toLowerCase() == "byron") {
+                welcome_element.textContent += "Happy birthday :)"
+            } else {
+                welcome_element.textContent += "If you see Byron please say happy birthday to him."
+            }
+
+            // show welcome screen
+            document.getElementById('welcome-screen').classList.remove('hidden');
+
+        }
+
+        function hide_welcome_screen() {
+            document.getElementById('overlay').classList.add('hidden');
+            // picture time
+            document.getElementById('picture').classList.remove('hidden');
+        }
+
+        var spooky_intervals = []
+
+        function enable_spooky_picturee() {
+            // enable spooky spnge
+            spooky_intervals.push(window.setInterval(toggle_invert, 1000));
+
+            b = document.getElementById('spooky-button')
+            if (b.value == "Spooky Mode")
+            {
+                b.value = "More Spooky"
+            } else if (b.value == "More Spooky") {
+                b.value = "Even More Spooky"
+            }
+        }
+
+        function disable_spooky_mode() {
+            for (i = spooky_intervals.length - 1; i >= 0; i--) {
+                window.clearInterval(spooky_intervals[i]);
+            }
+            spooky_intervals = []
+            document.getElementById('picture').classList.remove('inverted');
+        }
+
+        // flashes spooky picturee bob
+        function toggle_invert() {
+            document.getElementById('picture').classList.toggle('inverted');
+        }
+
+        pic_idx = 0;
+        available_pics = [
+            'images/spongebob.jpg',
+            'images/horse.jpg',
+            'images/basketball.png',
+            'images/tape_measure.jpg',
+            'images/boss.jpg',
+            'images/morgan_freeman.png',
+            'images/crappie.jpg',
+            'images/stars.png',
+            'images/evil_queen.png',
+            'images/bean.jpg',
+            'images/garfield.jpg',
+            'images/larry.jpg',
+            'images/toilet.jpg',
+            ];
+
+        function next_picture() {
+            pic_idx = (pic_idx + 1) % available_pics.length;
+            document.getElementById('pic').src = available_pics[pic_idx]
+        }
+
+    </script>
+
 </head>
 <body>
     <div id='overlay'>
@@ -16,13 +94,28 @@
             <input type="text" id="username" name="username"><br>
             <label for='password'>password:</label>
             <input type="password" id="password" name="password"><br>
-            <div style="text-align: center">
-                <input type="submit" id='login-button' value="log on" onclick="hide_overlay()">
+
+            <div class='centered'>
+                <input type="submit" id='login-button' value="log in" onclick="log_in()">
+            </div>
+        </div>
+
+        <div id='welcome-screen' class='hidden'>
+            <div id='welcome-message'></div>
+            <div class='centered'>
+                <input type="submit" id='hide-message-button' value='OK' onclick='hide_welcome_screen()'>
             </div>
         </div>
     </div>
 
-    <img src='images/spongebob.jpg' alt='spong bob' style='display: block; margin: auto;'>
+    <div id='picture' class='hidden'>
+        <div class='centered'>
+            <input type="submit" id='spooky-button' value='Spooky Mode' onclick='enable_spooky_picturee()'>
+            <input type="submit" id='too-spooky-button' value='Too Spooky!' onclick='disable_spooky_mode()'>
+            <input type="submit" id='next-pic-button' value="Next" onclick='next_picture()'>
+        </div>
+        <img id='pic' src='images/spongebob.jpg' alt='spong bob' style='display: block; margin: auto;'>
+    </div>
 
     
 </body>
