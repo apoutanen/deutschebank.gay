@@ -1,0 +1,131 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: deutscheFont;
+                src: url("Blackmetal-MVB5J.ttf");
+            }
+            body {
+                background-image: url("images/inside-vault-4.jpg");
+                background-repeat: repeat;
+            }
+
+            h1 {
+                font-size: 60px;
+                font-family: deutscheFont;
+                color: #333333;
+                text-shadow: -2px 0px 0px white;
+                display: inline
+            }
+            p {
+                font-size: 30px;
+                font-family: deutscheFont;
+                color: black;
+                text-align: center;
+            }
+            i {
+                font-size: 40px;
+                color: red;
+                text-shadow: 0px 0px 8px black;
+            }
+            .title {
+                text-align: center;
+            }
+            .assets {
+                width: 500px;
+                height: 500px;
+                margin: auto;
+                background-color: black;
+            }
+            #loading {
+                display: none;
+                margin-left: 225px;
+                width: 40px;
+                height: 40px;
+            }
+            #money {
+                color: white;
+                margin-left: 200px;
+                margin-top: 225px;
+                font-size: 20px;
+            }
+            #reset {
+                display: none;
+                text-align: center;
+            }
+            #resetBank {
+                display: none;
+            }
+        </style>
+        <script>
+
+            totalMoney = 0;
+
+            function updateMoney() {
+                let loading = document.getElementById("loading");
+                loading.style.display = "none";
+
+                let money = document.getElementById("money");
+                totalMoney += 390;
+                money.innerHTML = "$" + totalMoney;
+
+                if (totalMoney < 69420 && totalMoney != 0) {
+                    window.setTimeout(updateMoney, 17);
+                }
+                else
+                {
+                    document.getElementById("reset").style.display = "block";
+                }
+            }
+
+            window.addEventListener("load", () => {
+                document.getElementById("viewAssets").addEventListener("click", () => {
+                    let loading = document.getElementById("loading");
+                    loading.style.display = "block";
+                    totalMoney = 0;
+                    window.setTimeout(updateMoney, 2000);
+                });
+                document.getElementById("reset").addEventListener("click", () => {
+                    totalMoney = -390;
+                    updateMoney();
+                    document.getElementById("resetBank").style.display = "block";
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="title">
+            <img src="images/animated_torch_sconce.gif">
+            <h1>WELCOME TO THE DOYCHA-VAULT</h1>
+            <img src="images/animated_torch_sconce.gif">
+        </div>
+        <center>
+            <p>↓↓ click here for epic soundtrack ↓↓<p>
+        <iframe width="25" height="25" src="https://www.youtube.com/embed/Jm932Sqwf5E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <p>please be incredibly careful, as all of the assets of the dutch bank are stored in this vault</p>
+        <p>do <i>not</i> touch anything!!!!</p>
+        <p>....unless you are the CEO of course 😉</p>
+        <div class="assets">
+            <center>
+            <a id="viewAssets" href="#HappyBirthdayByron">
+                <img src="images/assets.png" width="200px" height="200px"></img><br>
+                view assets
+            </a>
+            </center>
+            <br>
+            <br>
+            <br>
+            <img id="loading" src=images/loading.gif></img>
+            <span id="money"></span><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a id="reset" href="images/no-more-deutsche-bank.jpg">DO NOT PRESS →<img src="images/reset.png" width="100px" height="100px"></img>← DO NOT PRESS</a>
+        </div>
+        <p>Wow, look at that, all the assets of deueutsh benk. Now that sure is a truly awe inspiring amount of money. We are prospering endlessly, and it is all thanks to your charismatic leadership and quirky "CEO" personality.
+        </p>
+    </body>
+</html>
