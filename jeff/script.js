@@ -1,4 +1,27 @@
 function log_in() {
+    un = document.getElementById('username')
+    pw = document.getElementById('password')
+
+    both_filled = true;
+
+    if (un.value === '') {
+        un.style = 'background-color: darksalmon;';
+        both_filled = false;
+    } else {
+        un.style = '';
+    }
+
+    if (pw.value === '') {
+        pw.style = 'background-color: darksalmon;';
+        both_filled = false;
+    } else {
+        pw.style = '';
+    }
+
+    if (!both_filled) {
+        return;
+    }
+
     // hide the login box
     document.getElementById('login-box').classList.add('hidden');
 
@@ -44,6 +67,9 @@ function disable_spooky_mode() {
     }
     spooky_intervals = []
     document.getElementById('picture').classList.remove('inverted');
+
+    b = document.getElementById('spooky-button')
+    b.value = "Spooky Mode"
 }
 
 // flashes spooky picturee bob
