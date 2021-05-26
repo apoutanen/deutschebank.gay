@@ -10,13 +10,17 @@
 		h1 {
 			color: blue;
 		}
+		h1#nudge {
+			color: red;
+		}
 		p#counter{
 			font-family: "Copperplate", fantasy;
-			font-size: 200px;
+			font-size: 175px;
 			font-style: italic;
 			color: hotpink;
-			position: fixed;
+			position: absolute;
 			left: 50px;
+			bottom: -100px;
 		}
 		img#goat {
 			width: 500px;
@@ -26,6 +30,49 @@
 			position: absolute;
 			bottom: 50px;
 			right: 50px;
+		}
+		img#shinji {
+			width: 250px;
+			position: absolute;
+			bottom: 250px;
+			right: 500px;
+		}
+		img#bean {
+			width: 275px;
+			position: absolute;
+			bottom: 500px;
+			right: 500px;
+		}
+		img#puss {
+			width: 275px;
+			position: absolute;
+			bottom: 400px;
+			right: 100px;
+		}
+		img#stinky {
+			width: 400px;
+			position: absolute;
+			bottom: 100px;
+			right: 600px;
+		}
+		img#callie {
+			width: 200px;
+			position: absolute;
+			bottom: 100px;
+			right: 200px;
+		}
+		img#feta {
+			width: 200px;
+			position: absolute;
+			bottom: 50px;
+			right: 500px;
+		}
+		img#happy {
+			width: 1430px;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			display: none;
 		}
 		audio#audio {
 			position: absolute;
@@ -49,31 +96,55 @@
 </head>
 <body>
 
-	<h1>welcome to aria's page</h1>
+	<h1>happy birthday byron</h1>
+	<h1>please turn up your speakers</h1>
 
 	<img id="goat" onmousedown="rotate('goat')" src="images/goat.jpeg" alt="spinning goat">
 
-	<div><img id="squiddy" onmousedown="rotate('squiddy')" src="images/handsome_squiddy.jpeg" alt="spinning squidward"><div>
+	<img id="squiddy" onmousedown="rotate('squiddy')" src="images/handsome_squiddy.jpeg" alt="spinning squidward">
+
+	<img id="shinji" onmousedown="rotate('shinji')" src="images/shinji.jpeg" alt="spinning shinji">
+
+	<img id="bean" onmousedown="rotate('bean')" src="images/bean.jpeg" alt="spinning bean">
+
+	<img id="stinky" onmousedown="rotate('stinky')" src="images/stinky.jpeg" alt="spinning stinky">
+
+	<img id="puss" onmousedown="rotate('puss')" src="images/puss.png" alt="spinning puss">
+
+	<img id="callie" onmousedown="rotate('callie')" src="images/callie.jpeg" alt="spinning callie">
+
+	<img id="feta" onmousedown="rotate('feta')" src="images/feta.jpeg" alt="spinning feta">
+
+	<img id="happy" src="images/happy.gif" >
 
 	<p id="counter">0</p>
 
-	<!-- working on this -->
-	<!-- <iframe src="audio/allstar.mp3" allow="autoplay" id="audio"></iframe>
-	<audio id="player" autoplay controls>
-		<source src="audio/allstar.mp3" type="audio/mp3">
-	</audio> -->
+	<h1 id="nudge">click something</h2>
 
-	<audio id="audio" src="audio/allstar.mp3"></audio>
+	<audio id="audio1" src="audio/allstar.mp3"></audio>
+	<audio id="audio2" src="audio/nge.mp3"></audio>
 
 	<script type="text/javascript">
 		var clicked = 0;
-		var rotations = 20;
-		var audio = document.getElementById("audio");
-		var rotatorRule = document.styleSheets[0].cssRules[7];
+		var rotations = 50;
+		var audio1 = document.getElementById("audio1");
+		var audio2 = document.getElementById("audio2");
+		var rotatorRule = document.styleSheets[0].cssRules[15];
 
 		function rotate(id) {
 			if (clicked == 0) {
-				audio.play();
+				audio1.play();
+			} else if (clicked == 4 ) {
+				document.getElementById("nudge").textContent = "keep going";
+			} else if (clicked == 12 ) {
+				document.getElementById("nudge").textContent = "getting there";
+			} else if (clicked == 20 ) {
+				document.getElementById("nudge").textContent = "almost there";
+			} else if (clicked == 23 ) {
+				audio1.pause();
+				audio2.play();
+				window.alert("happy birthday byron!! !! !")
+				document.getElementById("happy").style.display = "block";
 			}
 			clicked = clicked + 1;
 			document.getElementById("counter").textContent = clicked;
@@ -81,6 +152,10 @@
 			// this is fucky you don't have to do this
 			rotatorRule.style.animation = rotations + "s linear 0s infinite normal none running rotating";
 			rotations = rotations/2;
+
+			var randomColor = Math.floor(Math.random()*16777215).toString(16);
+			document.body.style.backgroundColor = "#" + randomColor;
+
 		}
 	</script>
 </body>
