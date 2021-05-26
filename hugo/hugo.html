@@ -26,44 +26,144 @@
                 mineBitcoin();
             });
         </script>
+        <style>
+            body {
+                background-color: blue;
+                font-family: sans-serif;
+            }
+            .doycha-vault {
+                border-style: double;
+                border-width: thick;
+                width: 500px;
+                height: 250px;
+                margin: auto;
+                text-align: center;
+                padding-top: 65px;
+                background-image: url("images/vault.jpg");
+                background-size: 100% 100%;
+                color: #444444;
+                font-size:22px;
+                text-shadow: -2px 0px 0px white;
+            }
+            .unlocked {
+                width: 100px;
+                height: 100px;
+                border-style: solid;
+                border-width: thick;
+                border-color: blue;
+                transition: all 1s ease-out;
+            }
+            .unlocked:hover {
+                width: 120px;
+                height: 120px;
+                border-style: outset;
+                border-width: thick;
+                border-color: blue;
+                box-shadow: -50px 0px 25px black;
+            }
+            .navigation {
+                height: 100%;
+                width: 150px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: black;
+                color: blue;
+                padding-top: 20px;
+
+                img: {
+                    width: 100%;
+                }
+            }
+            .content {
+                margin-left: 150px;
+            }
+            .bitcoin {
+                position: absolute;
+                bottom: 10px;
+            }
+        </style>
     </head>
     <body>
-        <h1>
-            Hello valued user, and welcome to Deutchebank!
-        </h1>
-        <img src="images/multilingual_customer_support_WIDE.jpg">
-        <h1>
-            Wow, it looks like we have an extra special login today...
-        </h1>
-        <img src="images/rolling-out-carpet.jpg"></img>
-        <img src="images/wall-murals-vip-zone-black.jpg.jpg"></img>
-        <h1>
-            THE CEO OF DEUTCHEBANK!
-        </h1>
-        <img src="images/deutchebank-ceo.png"></img>
-        <img src="images/ceo-mug.jpg"></img>
-        <h1>
-            on his very special day... <span class="blink">HAPPY BIRTHDAY DEAR CEO BYRON KONTOU</span>
-        </h1>
-        <img src="images/minions.jpg"></img>
-        <img src="images/hats.jpg"></img>
-        <img src="images/hats2.jpg"></img>
-        <img src="images/hats3.jpg"></img>
-        <img src="images/hats4.jpg"></img>
-        <img src="images/turning50.jpg"></img>
-        <h1>
-            there are lots of exciting developments underway at the doychabank web services department.
-        </h1>
-        <h1>
-            We are excited to finally show off our hard work
-        </h1>
-        <h1>
-            Check this out!!
-        </h1>
-        <img src="images/morphing.gif"></img>
-        <img src="images/underconstruction.gif"></img>
-        <img src="images/miner1.gif"></img>
-        <img src="images/miner2.gif"></img>
-        You have mined <span id="bitcoin"></span> bitcoin for Deutchebank during your visit
+        <div class="navigation">
+            <img src="images/byrons-bank.png" width="140" height="140"></img>
+            <b>Deuscha Bank</b><br>
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+<br>
+
+The best bank in Greece!
+<br>
+
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+🇬🇷
+
+            <img src="images/underconstruction.gif" width="140" height="140"></img>
+
+            
+            <div class="bitcoin">
+                <img src="images/miner2.gif"></img>
+                <img src="images/miner1.gif" width="140" height="140"></img>
+                <p>You have mined <span id="bitcoin"></span> bitcoin for Deutchebank during your visit</p>
+            </div>
+        </div>
+        <div class="content">
+            <h1>
+                Hello valued user, and welcome to Deutchebank!
+            </h1>
+            <img src="images/multilingual_customer_support_WIDE.jpg" width="1200">
+            <h1>
+                Wow, it looks like we have an extra special login today...
+            </h1>
+            <img src="images/rolling-out-carpet.jpg"></img>
+            <img src="images/wall-murals-vip-zone-black.jpg.jpg"></img>
+            <h1>
+                THE CEO OF DEUTCHEBANK!
+            </h1>
+            <img src="images/deutchebank-ceo.png"></img> <br>
+            <img src="images/ceo-mug.jpg"></img>
+            <h1>
+                on his very special day... <span class="blink">HAPPY BIRTHDAY DEAR CEO BYRON KONTOU</span>
+            </h1>
+            <img src="images/minions.jpg"></img>
+            <img src="images/hats.jpg"></img>
+            <img src="images/hats2.jpg"></img>
+            <img src="images/hats3.jpg"></img>
+            <img src="images/hats4.jpg"></img>
+            <img src="images/turning50.jpg"></img>
+            <h1>
+                there are lots of exciting developments underway at the doychabank web services department.
+            </h1>
+            <h1>
+                We are excited to finally show off our hard work
+            </h1>
+            <h1>
+                Check this out!
+            </h1>
+            <img src="images/morphing.gif"></img>
+            <img src="images/users.gif"></img>
+            <img src="images/gears.gif"></img>
+            <img src="images/tesseract.gif"></img>
+            <img src="images/clippy.gif"></img>
+
+            <h1>that was pretty cool, wasn't it?</h1>
+            <h1>but here's the part you've probably been waiting for</h1>
+            <h1>the <i>doycha-vault</i></h1>
+            <h1>Since you're the CEO, we've gone ahead and unlocked it for you</h1>
+            <div class="doycha-vault">
+                <p><b>DOYCHA VAULT</b></p>
+                <a href="doycha-vault.html"><img src="images/unlocked.png" class="unlocked"></img></a>
+            </div>
+        </div>
     </body>
 </html>
