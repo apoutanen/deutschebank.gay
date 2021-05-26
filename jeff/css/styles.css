@@ -1,3 +1,20 @@
+.inverted {
+    filter: invert(1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.centered {
+    text-align: center;
+    padding: 10px 0px 0px;
+}
+
+body {
+    background-color: black;
+}
+
 #login-box {
     position: fixed;
     display: inline-block;
@@ -7,7 +24,7 @@
     transform: translate(-50%, -50%);
     background-color: black;
     color: white;
-    font-family: monospace;n
+    font-family: monospace;
     font-size: 16pt;
     z-index: 3;
     cursor: pointer;
@@ -20,7 +37,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: grey;
     z-index: 2;
 }
 
@@ -32,4 +49,18 @@ input[type=text], input[type=password] {
 input[type=submit] {
     font-size: 16pt;
     font-family: monospace;
+}
+
+#welcome-screen {
+    position: fixed;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    padding: 0.5%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: 16pt;
+    border-radius: 10px;
 }
