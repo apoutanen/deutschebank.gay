@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Goodnight</title>
+</head>
+<style>
+	body{
+		background-image:url('images/sleepbackground.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: 100% 100%;
+		padding-top: 150px;
+		}
+		h1 {text-align: center;
+		font-size: 15px;
+		color:red;}
+		.button{align-self: center;
+			color: grey;
+			position: absolute;
+			top: 50%;
+			right: 50%;
+			}
+		.button1 {background-color:black;}
+</style>
+<body>
+	<h1>GOODNIGHT</h1>
+
+	<script>
+		var audio = new Audio("sleepytime.mp3" ) ;
+
+		audio.oncanplaythrough = function(){
+		audio.play();
+		}
+
+		audio.loop = true;
+
+		audio.onended = function(){
+		audio.play();
+		}
+	</script>
+
+	<button class = "button button1" 
+			onclick="audio.play()" 
+			>If nothing is happening !Click Me! (im no web dev)</button>
+
+
+</body>
+</html>
